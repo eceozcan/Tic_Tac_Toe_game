@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Tic-Tac-Toe Game',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xffecf7dc), // Açık yeşil zemin
+        scaffoldBackgroundColor: const Color(0xffecf7dc), 
         fontFamily: 'Roboto',
         primaryColor: Colors.green,
         appBarTheme: const AppBarTheme(
