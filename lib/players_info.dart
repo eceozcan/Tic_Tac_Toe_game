@@ -63,24 +63,39 @@ class _PlayersInfoPageState extends State<PlayersInfoPage> {
         centerTitle: false,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
         child: Column(
           children: [
+            const Divider(thickness: 1.5),
+            const SizedBox(height: 5),
             _playerInput(player1Controller, 'Player 1', Colors.blue),
-            const SizedBox(height: 22),
-            const Icon(Icons.import_export, size: 32, color: Colors.black),
-            const SizedBox(height: 22),
+            const SizedBox(height: 8),
+
+            GestureDetector(
+              onTap: _swapNames,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  Icon(Icons.keyboard_arrow_up, size: 40, color: Colors.black),
+                  Text('|', style: TextStyle(fontSize: 55, color: Colors.black, height: -0.1)),
+                  Icon(Icons.keyboard_arrow_down, size: 40, color: Colors.black),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 2),
             _playerInput(player2Controller, 'Player 2', Colors.red),
-            const SizedBox(height: 10),
-            const Divider(thickness: 1),
+            const SizedBox(height: 15),
+            const Divider(thickness: 1.5),
             const Align(
               alignment: Alignment.center,
               child: Text(
-                'Heros List:',
+                'Heroes List:',
                 style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.normal,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
                   color: Colors.black,
+                  fontFamily: 'serif',
                 ),
               ),
             ),
@@ -107,22 +122,18 @@ class _PlayersInfoPageState extends State<PlayersInfoPage> {
                       });
                     },
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 4, vertical: 6),
+                      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
                       child: Row(
                         children: [
-                          const Icon(Icons.star,
-                              color: Colors.orange, size: 28),
+                          const Icon(Icons.star, color: Colors.orange, size: 28),
                           const SizedBox(width: 8),
                           Expanded(
                             child: Column(
-                              crossAxisAlignment:
-                              CrossAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 RichText(
                                   text: TextSpan(
-                                    style:
-                                    const TextStyle(fontSize: 16),
+                                    style: const TextStyle(fontSize: 16),
                                     children: [
                                       TextSpan(
                                         text: hero['name'],
@@ -149,11 +160,10 @@ class _PlayersInfoPageState extends State<PlayersInfoPage> {
                             '${hero['score']}',
                             style: const TextStyle(
                               fontSize: 18,
-                              color: Color(0xFF4B014B), // Koyu mürdüm
+                              color: Color(0xFF4B014B),
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-
                         ],
                       ),
                     ),
@@ -164,19 +174,30 @@ class _PlayersInfoPageState extends State<PlayersInfoPage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _navigateToGame,
-        backgroundColor: Colors.green,
-        child: const Icon(
-          Icons.arrow_forward,
-          color: Colors.white,
+
+      floatingActionButton: Container(
+        width: 60,
+        height: 60,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.green,
+         
+        ),
+        child: FloatingActionButton(
+          onPressed: _navigateToGame,
+          backgroundColor: Colors.green,
+          elevation: 0,
+          child: const Icon(
+            Icons.arrow_forward,
+            color: Colors.white,
+            size: 50,
+          ),
         ),
       ),
     );
   }
 
-  Widget _playerInput(
-      TextEditingController controller, String hint, Color color) {
+  Widget _playerInput(TextEditingController controller, String hint, Color color) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
@@ -197,29 +218,26 @@ class _PlayersInfoPageState extends State<PlayersInfoPage> {
       child: Row(
         children: [
           Container(
-            width: 30,
-            height: 30,
+            width: 20,
+            height: 20,
             decoration: BoxDecoration(
               color: Colors.grey,
               borderRadius: BorderRadius.circular(4),
             ),
-            child: const Icon(Icons.person, size: 30, color: Colors.white),
+            child: const Icon(Icons.person, size: 20, color: Colors.white),
           ),
-          const SizedBox(width: 22),
+          const SizedBox(width: 32),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextField(
                   controller: controller,
-                  style: const TextStyle(fontSize: 23),
-                  decoration: InputDecoration(
-                    hintText: hint,
-                    hintStyle: const TextStyle(fontSize: 13),
+                  style: const TextStyle(fontSize: 26),
+                  decoration: const InputDecoration(
                     border: InputBorder.none,
                     isDense: true,
-                    contentPadding:
-                    const EdgeInsets.symmetric(vertical: 8),
+                    contentPadding: EdgeInsets.symmetric(vertical: 6),
                   ),
                 ),
                 Container(
@@ -227,12 +245,19 @@ class _PlayersInfoPageState extends State<PlayersInfoPage> {
                   width: double.infinity,
                   color: Colors.black26,
                 ),
+                Text(
+                  hint,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                  ),
+                ),
               ],
             ),
           ),
           Container(
-            width: 20,
-            height: 20,
+            width: 35,
+            height: 35,
             decoration: BoxDecoration(
               color: color,
               shape: BoxShape.circle,
