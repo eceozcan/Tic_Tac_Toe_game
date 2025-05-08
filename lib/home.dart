@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: const Color(0xffecf7dc),
       body: Column(
         children: [
-          // Üst bar
+
           Container(
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 10),
@@ -32,17 +32,24 @@ class HomePage extends StatelessWidget {
             ),
           ),
 
-          // Daha büyük görsel: 420px (son ayar)
           SizedBox(
             width: double.infinity,
             height: 420,
-            child: Image.asset(
-              "assets/images/background.png",
-              fit: BoxFit.contain,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Image.asset(
+                  "assets/images/background.png",
+                  fit: BoxFit.contain,
+                ),
+                Image.asset(
+                  "assets/images/words.png",
+                  width: 120,
+                ),
+              ],
             ),
           ),
 
-          // Turuncu buton - üstüne yapışık gibi duracak
           Transform.translate(
             offset: const Offset(0, -20),
             child: ElevatedButton(
@@ -50,13 +57,13 @@ class HomePage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 shape: const CircleBorder(),
                 backgroundColor: Colors.orange,
-                padding: const EdgeInsets.all(24),
+                padding: const EdgeInsets.all(44),
               ),
               child: const Text(
                 "V 1.0",
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 16,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -80,9 +87,9 @@ class HomePage extends StatelessWidget {
               child: const Text(
                 'Continue >>',
                 style: TextStyle(
-                  fontSize: 36,
+                  fontSize: 50,
                   fontWeight: FontWeight.bold,
-                  color: Colors.green,
+                  color: Color(0xFF74D151),
                 ),
               ),
             ),
