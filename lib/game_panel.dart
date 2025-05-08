@@ -102,7 +102,7 @@ class _GamePageState extends State<GamePage> {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        title: const Text("Draw"),
+        title: const Text("Draw!!!"),
         content: const Text(
           "One point for each player.",
           style: TextStyle(fontSize: 16),
@@ -180,14 +180,20 @@ class _GamePageState extends State<GamePage> {
               children: [
                 Text(
                   '${widget.player1Name} Score: $player1Score',
-                  style: const TextStyle(fontSize: 25, color: Colors.blue),
-                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 30,
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold, // ← EKLENDİ
+                  ),
                 ),
-                const SizedBox(height: 2.8),
+                const SizedBox(height: 2.5),
                 Text(
                   '${widget.player2Name} Score: $player2Score',
-                  style: const TextStyle(fontSize: 25, color: Colors.red),
-                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 30,
+                    color: Colors.red,
+                    fontWeight: FontWeight.bold, 
+                  ),
                 ),
               ],
             ),
@@ -196,15 +202,20 @@ class _GamePageState extends State<GamePage> {
             const Divider(thickness: 1),
             Text(
               'Round: $round',
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 6),
             Align(
-              alignment: Alignment.centerLeft, // ✅ Sola hizalama
+              alignment: Alignment.centerLeft, 
               child: RichText(
                 text: TextSpan(
                   text: 'Turn: ',
-                  style: const TextStyle(fontSize: 25, color: Colors.black),
+                  style: const TextStyle(
+                    fontSize: 30,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+
                   children: [
                     TextSpan(
                       text: '$currentPlayer ($currentSymbol)',
@@ -218,6 +229,7 @@ class _GamePageState extends State<GamePage> {
               ),
             ),
 
+            const Divider(thickness: 1),
             const SizedBox(height: 12),
             Expanded(
               child: GridView.builder(
@@ -247,7 +259,8 @@ class _GamePageState extends State<GamePage> {
                 },
               ),
             ),
-            const SizedBox(height: 10),
+            const Divider(thickness: 1),
+            const SizedBox(height: 12),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -255,7 +268,7 @@ class _GamePageState extends State<GamePage> {
                   onPressed: _resetGame,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.lightGreen,
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                   ),
                   child: const Text("Reset"),
                 ),
@@ -283,7 +296,7 @@ class _GamePageState extends State<GamePage> {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.lightGreen,
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                   ),
                   child: const Text("Exit"),
                 ),
