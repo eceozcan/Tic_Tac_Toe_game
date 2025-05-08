@@ -2,7 +2,10 @@
 
 My First Flutter project.
 
-[![Tic Tac Toe Video](https://img.icons8.com/ios-filled/100/000000/play-button-circled.png)](https://github.com/eceozcan/Tic_Tac_Toe_game/blob/main/Tic_tac_toe.mp4)
+# Tic Tac Toe Images
+![Main Image](images/main.png)
+![Player Image](images/player.png)
+![Game Image](images/game.png)
 
 🎮 **Project Introduction Video**
 Click on the video above to see how the game works.
