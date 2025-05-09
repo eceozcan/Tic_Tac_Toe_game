@@ -8,6 +8,7 @@ My First Flutter project.
 
 
 🎮 **Project Introduction Video**
+📽 [Watch the video here](https://github.com/eceozcan/Tic_Tac_Toe_game/blob/main/Tic_tac_toe.mp4)
 Click on the video above to see how the game works.
 
 ## Getting Started
