@@ -4,9 +4,8 @@ My First Flutter project.
 
 # Tic Tac Toe Images
 ![Main Image](images/main.jpg)
-![Player Image](images/player_page.jpg)
 ![Game Image](images/game.jpg)
-![Game Image](images/player.jpg)
+
 
 🎮 **Project Introduction Video**
 Click on the video above to see how the game works.
